@@ -1,0 +1,38 @@
+<a routerLink="/" style="display: inline-block;">
+  <img src="/voltar.png" alt="Voltar" class="btn-voltar">
+</a>
+
+<div class="carrinho-container">
+  <h1 class="carrinho-titulo">Meu Carrinho</h1>
+
+  @if (itens.length === 0) {
+    <div class="carrinho-vazio">
+      <h2>Seu carrinho está vazio</h2>
+      <p>Adicione produtos para continuar</p>
+    </div>
+  }
+
+  @if (itens.length > 0) {
+    <div class="carrinho-lista">
+      @for (item of itens; track $index) {
+        <div class="carrinho-item">
+          <div class="item-info">
+            <h3>{{ item.nome }}</h3>
+            <p>R$ {{ item.preco }}</p>
+          </div>
+          <div class="item-quantidade">
+            <button class="btn-qtd" (click)="diminuir(item)">−</button>
+            <span>{{ item.quantidade }}</span>
+            <button class="btn-qtd" (click)="aumentar(item)">+</button>
+          </div>
+          <button class="btn-remover" (click)="remover(item.id)">Remover</button>
+        </div>
+      }
+    </div>
+
+    <div class="carrinho-total">
+      <h2>Total: R$ {{ total().toFixed(2) }}</h2>
+      <button class="btn-finalizar" (click)="finalizar()">Finalizar Pedido</button>
+    </div>
+  }
+</div>

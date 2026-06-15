@@ -1,0 +1,36 @@
+<div class="containerLogin">
+
+  <div class="img5">
+    <a href="inicial.html">
+      <img src="/voltar.png" alt="Voltar">
+    </a>
+  </div>
+
+  <div class="cardLogin">
+
+    <h2>Login</h2>
+
+    <form id="loginForm">
+     <input 
+        type ="email" 
+        name = "email"
+        placeholder="E-mail" 
+        [(ngModel)] = "email">
+
+        <input 
+        type="password" 
+        name="senha"
+        placeholder="Senha"
+        [(ngModel)] = "senha">
+
+        <button (click) = "entrar()">
+          Entrar
+        </button>
+    </form>
+
+    <p class="link" routerLink="/cadastro">
+      Criar conta
+    </p>
+
+  </div>
+</div>

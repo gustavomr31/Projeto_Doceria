@@ -1,0 +1,166 @@
+{
+  "carrinho": [
+    {
+      "nome": "Coxinha",
+      "preco": 8,
+      "quantidade": 1,
+      "id": "t3RngqgLP7A"
+    },
+    {
+      "nome": "Coxinha",
+      "preco": 8,
+      "quantidade": 1,
+      "id": "oieZXP7wZLw"
+    }
+  ],
+  "usuarios": [
+    {
+      "nome": "vivian lorrany ribeiro de araujo",
+      "telefone": "(11) 93921-2430",
+      "email": "vivian.lorrany16@gmail.com",
+      "senha": "Meggie*10",
+      "id": "7on6iayQBro"
+    },
+    {
+      "nome": "dede pirucudo",
+      "telefone": "(00) 00000-0000",
+      "email": "dede@dede.com",
+      "senha": "123456",
+      "id": "8fdZamae6Tk"
+    },
+    {
+      "nome": "leo rola",
+      "telefone": "(00) 0000-0000",
+      "email": "leo@rolao.com",
+      "senha": "123456",
+      "id": "t1fc912OW0k"
+    },
+    {
+      "nome": "vivian lorrany ribeiro de araujo",
+      "telefone": "(00) 00000-0000",
+      "email": "vivian@gmail.com",
+      "senha": "000000",
+      "id": "4hjEKaOPJGk"
+    },
+    {
+      "nome": "vivian lorrany",
+      "telefone": "(00) 00000-0000",
+      "email": "vivian@gmail.com.br",
+      "senha": "000000",
+      "id": "t0M8RUiZFNc"
+    },
+    {
+      "nome": "vivian lorrany",
+      "telefone": "(00) 00000-0000",
+      "email": "gg@hotmai.com",
+      "senha": "000000",
+      "id": "OhpB1nx6O20"
+    },
+    {
+      "nome": "bb bb",
+      "telefone": "(00) 00000-0000",
+      "email": "bb@gmail.com",
+      "senha": "000000",
+      "id": "Q9Fw7Rk-Mwc"
+    },
+    {
+      "nome": "gu b",
+      "telefone": "(00) 00000-0000",
+      "email": "gu@gmail.com",
+      "senha": "000000",
+      "id": "LytAcWblRxA"
+    },
+    {
+      "nome": "gg gg",
+      "telefone": "(00) 00000-0000",
+      "email": "g@gmail.com",
+      "senha": "000000",
+      "id": "_rDibv5vjvI"
+    },
+    {
+      "nome": "hh bh",
+      "telefone": "(00) 00000-0000",
+      "email": "hh@gmai.com",
+      "senha": "000000",
+      "id": "3lVALvoCn0E"
+    },
+    {
+      "nome": "leonardo santos",
+      "telefone": "(11) 96669-7452",
+      "email": "leo2007ssll@gmail.com",
+      "senha": "123456",
+      "id": "VDDbjHLLaU8"
+    },
+    {
+      "nome": "grg grg",
+      "telefone": "(00) 00000-0000",
+      "email": "leo@gmail.com",
+      "senha": "121212",
+      "id": "ghVyR_OI1QA"
+    },
+    {
+      "nome": "lipe santos",
+      "telefone": "(00) 00000-0000",
+      "email": "lipe@gmail.com",
+      "senha": "121212",
+      "id": "6Zyvcri7Xls"
+    },
+    {
+      "nome": "jose pinto",
+      "telefone": "(11) 11111-1111",
+      "email": "jose@gmail.com",
+      "senha": "123456",
+      "id": "5hA3aAaA0FI"
+    },
+    {
+      "nome": "Matheus Silva",
+      "telefone": "(11) 11111-1111",
+      "email": "matheus@gmail.com",
+      "senha": "123456",
+      "id": "Abz-CQjLWgs"
+    },
+    {
+      "nome": "gustavo muniz",
+      "telefone": "(00) 00000-0000",
+      "email": "gustavo@gmail.com",
+      "senha": "000000",
+      "id": "jXIaah2HiIY"
+    },
+    {
+      "nome": "Henrique Dias",
+      "telefone": "(11) 22222-2222",
+      "email": "henrique@gmail.com",
+      "senha": "123456",
+      "id": "sC7Qx786Cm0"
+    },
+    {
+      "nome": "Gustavo 2",
+      "telefone": "(11) 91130-0637",
+      "email": "guss@gmail.com",
+      "senha": "123456",
+      "id": "n3bCgzjm5go"
+    },
+    {
+      "nome": "bruno de oliveira",
+      "telefone": "(11) 99999-9999",
+      "email": "bruno@gmail.com",
+      "senha": "123456",
+      "id": "AYfwoFujcLo"
+    },
+    {
+      "nome": "Enrique Afonso",
+      "telefone": "(11) 11111-1111",
+      "email": "a@gmail.com",
+      "senha": "enrique123",
+      "id": "TBWvUoh_HwA"
+    },
+    {
+      "nome": "Guilherme Alves",
+      "telefone": "(12) 2232-3334",
+      "email": "gui@gmail.com",
+      "senha": "123456",
+      "id": "Bej_YdWYMk0"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

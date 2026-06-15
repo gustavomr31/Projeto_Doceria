@@ -1,0 +1,178 @@
+<div class="cadastro-container">
+  <div class="cadastro-left">
+    <div class="decoracao">
+      <span class="bolinha b1"></span>
+      <span class="bolinha b2"></span>
+      <span class="bolinha b3"></span>
+      <span class="bolinha b4"></span>
+      <span class="bolinha b5"></span>
+    </div>
+    <div class="logo-area">
+      <img src="/Logo.png" alt="Logo Doceria" class="logo" />
+    </div>
+    <h2 class="slogan">Doce começo,<br />cadastro fácil!</h2>
+    <p class="subtexto">
+      Crie sua conta e descubra nossas delícias feitas com muito carinho para você.
+    </p>
+  </div>
+
+  <div class="cadastro-right">
+    <div class="form-card">
+      <h1 class="form-titulo">Criar conta</h1>
+      <p class="form-subtitulo">Preencha seus dados para começar</p>
+
+      <form (ngSubmit)="onSubmit()" #cadastroForm="ngForm" novalidate>
+
+        <!-- Nome Completo -->
+        <div class="campo-grupo">
+          <label for="nome" class="campo-label">Nome completo</label>
+          <div class="input-wrapper"
+            [class.erro]="nomeInvalido && (formSubmitido || nomeTocado)"
+            [class.valido]="nome && !nomeInvalido && nomeTocado">
+            <span class="input-icone">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </span>
+            <input type="text" id="nome" [(ngModel)]="nome" name="nome"
+              placeholder="Seu nome completo"
+              (blur)="validarNome()" (input)="validarNome()" />
+            <span class="icone-status" *ngIf="formSubmitido || nomeTocado">
+              <svg *ngIf="!nomeInvalido" class="icone-ok" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <svg *ngIf="nomeInvalido" class="icone-erro" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </span>
+          </div>
+          <p class="mensagem-erro" *ngIf="nomeInvalido && (formSubmitido || nomeTocado)">
+            Por favor, informe seu nome completo.
+          </p>
+        </div>
+
+        <!-- Telefone -->
+        <div class="campo-grupo">
+          <label for="telefone" class="campo-label">Telefone</label>
+          <div class="input-wrapper"
+            [class.erro]="telefoneInvalido && (formSubmitido || telefoneTocado)"
+            [class.valido]="telefone && !telefoneInvalido && telefoneTocado">
+            <span class="input-icone">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z" />
+              </svg>
+            </span>
+            <input type="tel" id="telefone" [(ngModel)]="telefone" name="telefone"
+              placeholder="(00) 00000-0000"
+              (blur)="validarTelefone()" (input)="mascaraTelefone($event)" maxlength="15" />
+            <span class="icone-status" *ngIf="formSubmitido || telefoneTocado">
+              <svg *ngIf="!telefoneInvalido" class="icone-ok" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <svg *ngIf="telefoneInvalido" class="icone-erro" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </span>
+          </div>
+          <p class="mensagem-erro" *ngIf="telefoneInvalido && (formSubmitido || telefoneTocado)">
+            Por favor, informe um telefone válido.
+          </p>
+        </div>
+
+        <!-- E-mail -->
+        <div class="campo-grupo">
+          <label for="email" class="campo-label">E-mail</label>
+          <div class="input-wrapper"
+            [class.erro]="emailInvalido && (formSubmitido || emailTocado)"
+            [class.valido]="email && !emailInvalido && emailTocado">
+            <span class="input-icone">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </span>
+            <input type="email" id="email" [(ngModel)]="email" name="email"
+              placeholder="seu@email.com"
+              (blur)="validarEmail()" (input)="validarEmail()" />
+            <span class="icone-status" *ngIf="formSubmitido || emailTocado">
+              <svg *ngIf="!emailInvalido" class="icone-ok" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <svg *ngIf="emailInvalido" class="icone-erro" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </span>
+          </div>
+          <p class="mensagem-erro" *ngIf="emailInvalido && (formSubmitido || emailTocado)">
+            Informe um e-mail válido com "@" e domínio (ex: nome&#64;email.com).
+          </p>
+        </div>
+
+        <!-- Senha -->
+        <div class="campo-grupo">
+          <label for="senha" class="campo-label">Senha</label>
+          <div class="input-wrapper"
+            [class.erro]="senhaInvalida && (formSubmitido || senhaTocada)"
+            [class.valido]="senha && !senhaInvalida && senhaTocada">
+            <span class="input-icone">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+            </span>
+            <input [type]="mostrarSenha ? 'text' : 'password'" id="senha"
+              [(ngModel)]="senha" name="senha"
+              placeholder="Mínimo 6 caracteres"
+              (blur)="validarSenha()" (input)="validarSenha()" />
+            <span class="input-icone olho" (click)="mostrarSenha = !mostrarSenha" style="cursor:pointer">
+              <svg *ngIf="!mostrarSenha" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <svg *ngIf="mostrarSenha" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
+                <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
+                <line x1="1" y1="1" x2="23" y2="23" />
+              </svg>
+            </span>
+            <span class="icone-status" *ngIf="formSubmitido || senhaTocada">
+              <svg *ngIf="!senhaInvalida" class="icone-ok" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <svg *ngIf="senhaInvalida" class="icone-erro" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </span>
+          </div>
+          <p class="mensagem-erro" *ngIf="senhaInvalida && (formSubmitido || senhaTocada)">
+            A senha deve ter pelo menos 6 caracteres.
+          </p>
+        </div>
+
+        <!-- Erro de email já cadastrado -->
+        <div class="alerta-erro" *ngIf="emailJaCadastrado">
+          Este e-mail já está cadastrado. Tente fazer login.
+        </div>
+
+        <!-- Botão -->
+        <button type="submit" class="btn-cadastrar" [class.carregando]="carregando" [disabled]="carregando">
+          <span *ngIf="!carregando">Criar minha conta</span>
+          <span *ngIf="carregando" class="spinner-wrapper">
+            <span class="spinner"></span> Cadastrando...
+          </span>
+        </button>
+
+      </form>
+
+      <p class="link-login">
+        Já tem uma conta?
+        <a routerLink="/login" class="link-rosa">Entrar agora</a>
+      </p>
+    </div>
+  </div>
+</div>

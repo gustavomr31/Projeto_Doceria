@@ -1,0 +1,311 @@
+<!-- Cabeçalho -->
+<div class="cabecalho">
+  <div class="logoInicial">
+    <img src="/Logo.png" alt="Logo">
+  </div>
+
+  <!-- Substitua apenas o trecho do <nav> -->
+<nav class="nav">
+  <a href="#catalogo">Cardápio</a>
+  <a href="#sobre">Sobre mim</a>
+  <a href="#endereco">Endereço</a>
+  <a routerLink="/carrinho">Carrinho</a>
+  
+  <!-- Login ou nome do usuário -->
+  <span *ngIf="!usuarioLogado" class="usuario-logado" routerLink="/login" style="cursor:pointer">Login</span>
+  <span *ngIf="usuarioLogado" class="usuario-logado">
+    Olá, {{ usuarioLogado.nome.split(' ')[0] }}!
+
+    <button (click)="sair()" class="btn-sair">Sair</button>
+  </span>
+  <a href="https://instagram.com/gostosuras_da_karla" target="_blank" class="instagram-link">
+    <img src="/Instagram.png" alt="Instagram">
+    Instagram
+  </a>
+</nav>
+</div>
+
+<!-- Conteúdo Principal -->
+<div class="containerInicial">
+  <div class="content">
+    <div class="text-section">
+      <p>
+        Sabor, carinho e qualidade em cada pedacinho.<br>
+        Navegue em nosso menu para descobrir as delícias<br>
+        que preparamos com muito carinho para você.<br>
+        Tudo feito com ingredientes de qualidade para<br>
+        adoçar e alegrar seu dia.
+      </p>
+<button (click)="irParaCatalogo()" class="btn-pedir">Faça sua encomenda</button>    </div>
+    <img src="/Brigadeiros.png" alt="img fundo de doces coloridos">
+  </div>
+</div>
+
+<!-- CATÁLOGO -->
+<section class="catalogo" id="catalogo">
+  <h1 class="catalogo-titulo">Nosso Catálogo</h1>
+  <div class="catalogo-container">
+
+    <!-- BOLOS -->
+    <div class="catalogo-card">
+      <img src="/Bolo.png">
+      <p>Bolos</p>
+      <button (click)="bolos = !bolos">Ver opções</button>
+      @if (bolos) {
+        <div class="catalogo-info">
+          <h4>Sabores</h4>
+          <span>Chocolate - R$ 60 <button (click)="adicionarCarrinho('Bolo Chocolate', 60)">Comprar</button></span>
+          <span>Morango - R$ 65 <button (click)="adicionarCarrinho('Bolo Morango', 65)">Comprar</button></span>
+          <span>Prestígio - R$ 70 <button (click)="adicionarCarrinho('Bolo Prestígio', 70)">Comprar</button></span>
+        </div>
+      }
+    </div>
+
+    <!-- SALGADOS -->
+    <div class="catalogo-card">
+      <img src="/coxinha.png">
+      <p>Salgados</p>
+      <button (click)="salgados = !salgados">Ver opções</button>
+      @if (salgados) {
+        <div class="catalogo-info">
+          <h4>Opções</h4>
+          <span>Coxinha - R$ 8 <button (click)="adicionarCarrinho('Coxinha', 8)">Comprar</button></span>
+          <span>Kibe - R$ 7 <button (click)="adicionarCarrinho('Kibe', 7)">Comprar</button></span>
+          <span>Enroladinho - R$ 6 <button (click)="adicionarCarrinho('Enroladinho', 6)">Comprar</button></span>
+        </div>
+      }
+    </div>
+
+    <!-- TORTAS SALGADAS -->
+    <div class="catalogo-card">
+      <img src="/tortasalgada.png">
+      <p>Tortas Salgadas</p>
+      <button (click)="tortas = !tortas">Ver opções</button>
+      @if (tortas) {
+        <div class="catalogo-info">
+          <h4>Sabores</h4>
+          <span>Frango - R$ 55 <button (click)="adicionarCarrinho('Torta de Frango', 55)">Comprar</button></span>
+          <span>Palmito - R$ 60 <button (click)="adicionarCarrinho('Torta de Palmito', 60)">Comprar</button></span>
+          <span>Calabresa - R$ 58 <button (click)="adicionarCarrinho('Torta de Calabresa', 58)">Comprar</button></span>
+        </div>
+      }
+    </div>
+
+    <!-- MOUSSES -->
+    <div class="catalogo-card">
+      <img src="/mousse.png">
+      <p>Mousses</p>
+      <button (click)="mousses = !mousses">Ver opções</button>
+      @if (mousses) {
+        <div class="catalogo-info">
+          <h4>Sabores</h4>
+          <span>Maracujá - R$ 15 <button (click)="adicionarCarrinho('Mousse de Maracujá', 15)">Comprar</button></span>
+          <span>Chocolate - R$ 18 <button (click)="adicionarCarrinho('Mousse de Chocolate', 18)">Comprar</button></span>
+          <span>Limão - R$ 14 <button (click)="adicionarCarrinho('Mousse de Limão', 14)">Comprar</button></span>
+        </div>
+      }
+    </div>
+
+    <!-- BRIGADEIROS -->
+    <div class="catalogo-card">
+      <img src="/brigadeiro.png">
+      <p>Brigadeiros</p>
+      <button (click)="brigadeiros = !brigadeiros">Ver opções</button>
+      @if (brigadeiros) {
+        <div class="catalogo-info">
+          <h4>Sabores</h4>
+          <span>Tradicional - R$ 3 <button (click)="adicionarCarrinho('Brigadeiro Tradicional', 3)">Comprar</button></span>
+          <span>Beijinho - R$ 3 <button (click)="adicionarCarrinho('Brigadeiro Beijinho', 3)">Comprar</button></span>
+          <span>Ninho - R$ 4 <button (click)="adicionarCarrinho('Brigadeiro Ninho', 4)">Comprar</button></span>
+        </div>
+      }
+    </div>
+
+    <!-- DONUTS -->
+    <div class="catalogo-card">
+      <img src="/donuts.png">
+      <p>Bolos Donuts</p>
+      <button (click)="donuts = !donuts">Ver opções</button>
+      @if (donuts) {
+        <div class="catalogo-info">
+          <h4>Sabores</h4>
+          <span>Chocolate - R$ 12 <button (click)="adicionarCarrinho('Donut de Chocolate', 12)">Comprar</button></span>
+          <span>Morango - R$ 12 <button (click)="adicionarCarrinho('Donut de Morango', 12)">Comprar</button></span>
+          <span>Nutella - R$ 15 <button (click)="adicionarCarrinho('Donut de Nutella', 15)">Comprar</button></span>
+        </div>
+      }
+    </div>
+
+    <!-- TORTAS DOCES -->
+    <div class="catalogo-card">
+      <img src="/torta.png">
+      <p>Tortas Doces</p>
+      <button (click)="doces = !doces">Ver opções</button>
+      @if (doces) {
+        <div class="catalogo-info">
+          <h4>Sabores</h4>
+          <span>Limão - R$ 55 <button (click)="adicionarCarrinho('Torta de Limão', 55)">Comprar</button></span>
+          <span>Morango - R$ 60 <button (click)="adicionarCarrinho('Torta de Morango', 60)">Comprar</button></span>
+          <span>Chocolate - R$ 65 <button (click)="adicionarCarrinho('Torta de Chocolate', 65)">Comprar</button></span>
+        </div>
+      }
+    </div>
+
+    <!-- BOLOS CASEIROS -->
+    <div class="catalogo-card">
+      <img src="/caseiro.png">
+      <p>Bolos Caseiros</p>
+      <button (click)="caseiros = !caseiros">Ver opções</button>
+      @if (caseiros) {
+        <div class="catalogo-info">
+          <h4>Sabores</h4>
+          <span>Fubá - R$ 30 <button (click)="adicionarCarrinho('Bolo de Fubá', 30)">Comprar</button></span>
+          <span>Cenoura - R$ 35 <button (click)="adicionarCarrinho('Bolo de Cenoura', 35)">Comprar</button></span>
+          <span>Laranja - R$ 32 <button (click)="adicionarCarrinho('Bolo de Laranja', 32)">Comprar</button></span>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="sobre-texto">
+    <span class="subtitulo">SOBRE A PROFISSIONAL</span>
+    <h1>KARLIANA <span>ARAÚJO</span></h1>
+    <p class="descricao">
+      Aos 39 anos, Karliana Araújo transformou uma paixão antiga pela confeitaria em uma trajetória construída com dedicação, criatividade e muito carinho. O que começou na cozinha de casa preparando doces para familiares e amigos, tornou-se uma experiência de mais de 6 anos criando sabores que marcam momentos especiais.
+    </p>
+    <div class="card">
+      <h3>Minha História</h3>
+      <p>A confeitaria surgiu em uma fase desafiadora da vida, quando cozinhar se tornou uma forma de recomeço. Cada receita passou a representar cuidado, superação e amor pelo que faz.</p>
+    </div>
+    <div class="card">
+      <h3>Missão</h3>
+      <p>Criar doces que transformem aniversários, comemorações e momentos simples em memórias inesquecíveis.</p>
+    </div>
+    <div class="card">
+      <h3>Experiência</h3>
+      <ul>
+        <li>39 anos de história e dedicação.</li>
+        <li>Mais de 6 anos trabalhando com confeitaria.</li>
+        <li>Especialidade em doces artesanais.</li>
+        <li>Atendimento personalizado.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="sobre-imagem">
+    <img src="/image (1).png">
+    <div class="experiencia">
+      <h2>+6</h2>
+      <p>Anos criando doces com amor</p>
+    </div>
+  </div>
+</section>
+
+<!-- MOTIVOS / ENDEREÇO -->
+<div class="container" id="endereco">
+  <div class="lado-esquerdo">
+    <h1 class="titulo">Motivos para escolher<br>as gostosuras da Karla</h1>
+    <div class="imagem-doce">
+      <img src="/preview-image.png" alt="Gostosuras da Karla">
+    </div>
+  </div>
+  <div class="lado-direito">
+    <div class="card6">
+      <div class="icon"><img src="/Especialização.jpeg" alt=""></div>
+      <h3>Especialização</h3>
+      <p>Há mais de 6 anos, dedico-me a criar bolos e salgados com amor, carinho e um rigoroso padrão de qualidade.</p>
+    </div>
+    <div class="card6">
+      <div class="icon"><img src="/comprometimento.jpeg" alt=""></div>
+      <h3>Comprometimento</h3>
+      <p>Nosso compromisso é com o prazer e a qualidade. Doces feitos com ingredientes selecionados, sem pressa e com muito carinho.</p>
+    </div>
+    <div class="card6">
+      <div class="icon"><img src="/facil_acesso.jpeg" alt=""></div>
+      <h3>Fácil Acesso</h3>
+      <p>Nossa loja fica em Socorro, São Paulo.<br>Endereço: Rua Vitória Urias Alves, 66 – Socorro – São Paulo – SP</p>
+    </div>
+    <div class="card6">
+      <div class="icon"><img src="/acompanhamento.jpeg" alt=""></div>
+      <h3>Acompanhamento</h3>
+      <p>Estamos ao seu lado em cada momento doce da vida. Seja para aniversário, casamento, corporativo ou simplesmente para se presentear.</p>
+    </div>
+  </div>
+</div>
+
+<!-- AVALIAÇÕES -->
+<section class="avaliacoes">
+  <h1>O QUE NOSSOS CLIENTES DIZEM</h1>
+  <img src="coracao.png.png">
+  <p class="avaliacoes-nota">⭐ 4.9 de 5</p>
+  <p class="avaliacoes-total">💬 +500 Avaliações</p>
+  <p class="avaliacoes-satisfacao">😊 98% satisfeitos</p>
+  <div class="avaliacoes-cards">
+    <div class="avaliacao-card">
+      <img src="Ellipse 1.png">
+      <h3>Letycia Alves</h3>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>"Eu pedi os doces para o aniversário da minha filha e simplesmente todo mundo elogiou! Vieram super bem embalados e fresquinhos com um sabor incrível."</p>
+    </div>
+    <div class="avaliacao-card destaque">
+      <img src="Ellipse 3.png">
+      <h3>Felipe Silva</h3>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>"Já provei vários doces de outros lugares, mas esse foi disparado o melhor! O sabor é muito equilibrado, não é enjoativo e dá vontade de comer vários."</p>
+    </div>
+    <div class="avaliacao-card">
+      <img src="Ellipse 2.png">
+      <h3>Ana Silva</h3>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>"Além dos doces serem maravilhosos, o atendimento foi impecável. Tiraram todas as minhas dúvidas e a entrega chegou antes do esperado."</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="rodape">
+  <div class="rodape-main">
+    <div class="rodape-brand">
+      <img src="/Logo.png" alt="Logo Doceria da Karla" class="dk-footer-logo">
+      <p class="dk-footer-slogan">A melhor doceria de São Paulo!</p>
+    </div>
+    <div class="rodape-block">
+      <h3>Mapa do Site</h3>
+      <ul>
+        <li><a href="#catalogo">Cardápio</a></li>
+        <li><a href="#sobre">Sobre Mim</a></li>
+        <li><a href="#endereco">Endereço</a></li>
+      </ul>
+    </div>
+    <div class="rodape-block">
+      <h3>Endereço</h3>
+      <div class="rodape-item">
+        <img src="/icone_endereco.png" class="dk-footer-icon">
+        <p>Rua Vitório Urias Alves 66<br>Socorro - São Paulo - SP</p>
+      </div>
+      <div class="rodape-item">
+        <img src="/icone_whats.png" class="dk-footer-icon">
+        <p>11 94864-5432</p>
+      </div>
+      <div class="rodape-item">
+        <img src="/icone_insta.png" class="dk-footer-icon">
+        <p>gostosuras_da_karla</p>
+      </div>
+    </div>
+    <div class="rodape-block">
+      <h3>Funcionamento</h3>
+      <p>Seg a Sex: 09h às 18h</p>
+      <p>Sábado: 09h às 14h</p>
+      <p>Domingo: Sob encomenda</p>
+    </div>
+    <div class="rodape-block">
+      <h3>Pagamentos</h3>
+      <p>Pix | Cartão | Dinheiro</p>
+      <button class="rodape-btn">Fazer pedido pelo WhatsApp</button>
+    </div>
+  </div>
+  <div class="rodape-copy">© 2026 Doceria da Karla</div>
+</footer>
