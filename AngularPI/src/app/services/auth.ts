@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 
 export class AuthService {
 
-  api = 'http://localhost:3000/usuarios';
+ api = 'https://projeto-doceria.onrender.com/usuários';
 
   constructor(
     private http: HttpClient

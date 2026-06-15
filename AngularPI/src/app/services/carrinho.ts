@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class Carrinho {
-  api = 'http://localhost:3000/carrinho';
+  api = 'https://projeto-doceria.onrender.com/carrinho';
 
   private _quantidade = new BehaviorSubject<number>(0);
   quantidade$ = this._quantidade.asObservable();
