@@ -14,7 +14,7 @@ JSON: Foi o formato que usei para organizar, enviar e receber os dados entre min
 🌐 Links para vocês testarem:
 Quem quiser dar uma olhada e testar como ficou o projeto, o link está aqui:
 
-Link do meu site rodando (Páginas GitHub): [ https://gustavomr31.github.io/Projeto_Doceria/ ]
+Link do meu site rodando (Páginas GitHub): [ [https://gustavomr31.github.io/Projeto_Doceria/](https://gustavomr31.github.io/Projeto_Doceria/)]
 
 ⚠️Nota Importante sobre o Status Atual
 
